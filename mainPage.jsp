@@ -77,46 +77,13 @@
             <h1 class="mainInfoText">회원 게시글 목록</h1>
             <p  class="mainInfoText">자유롭게 의견을 남겨보세요.<br>◌규정을 침해하는 글은 삭제될 수 있습니다.</p>
         </div>
-        <form action="../week13/action/createPostAction.jsp">
+        <form action="createPost.jsp">
             <button id="mainCreatePostButton" >Create Post</button>
         </form>
 
-    <%
 
-        request.setCharacterEncoding("utf-8");
-
-        try {
-
-            // 데이터베이스 연결
-           
-            %>
             <div id="postOuterBox">
-            <% while (rs.next()) {
-                %>
-                <div class="postBox">
-                    <form action="memberPostView.jsp" method="GET">
-                        <input type="hidden" name="post_id" value="<%= rs.getString("post_id") %>">
-                        <p>
-                            제목: <%= rs.getString("title") %><br>
-                            작성자: <%= rs.getString("user_id") %><br>
-                            작성 시간: <%= rs.getTimestamp("created_at") %><br>
-                            
-                            <button type="submit">게시물 보기</button>
-                        </p>
-                    </form>
-                </div>
-            <%
-            }
-            %>
-            </div>
-            <%
-
-        } catch (SQLException se) {
-            se.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    %>
+           
 </main>
 <footer>
     <div>

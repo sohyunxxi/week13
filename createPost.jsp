@@ -7,8 +7,7 @@
 
 <%
     request.setCharacterEncoding("utf-8");
-    String userName = (String)session.getAttribute("username");
-    String pwValue = request.getParameter("pw_value");
+    String userName = (String)session.getAttribute("userName");
     if (userName==null){
         response.sendRedirect("signIn.html");
     }
@@ -23,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>create Post</title>
-    <link type="text/css" rel="stylesheet" href="createPost.css">
+    <link type="text/css" rel="stylesheet" href="../week13/css/createPost.css">
 </head>
 <body>
     <header>
@@ -57,7 +56,7 @@
 
         <hr class="divideLine">
 
-        <form action="postCheck.jsp">
+        <form action="../week13/action/createPostAction.jsp">
             <div id="writeBox">
                 
 
@@ -77,7 +76,7 @@
             </div>
             <div id="buttonBox">
                 <button class="mainCreatePostButton">Post</button></form>
-                <form action="success.jsp"><button class="mainCreatePostButton">cancel</button></form>
+                <form action="mainPage.jsp"><button class="mainCreatePostButton">cancel</button></form>
             </div>
         </div>
  

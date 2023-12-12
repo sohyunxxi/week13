@@ -132,6 +132,7 @@
     spanWriter.innerText=idList[i];
     spanTime.innerText=timeList[i];
 
+    form.action = "postView.jsp";
     form.appendChild(spanTitle);
     form.appendChild(spanWriter);
     form.appendChild(spanTime);

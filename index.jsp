@@ -1,10 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+
+<%
+    request.setCharacterEncoding("utf-8");
+    String name = (String)session.getAttribute("userName");
+    String id = (String)session.getAttribute("userId");
+    String pw = (String)session.getAttribute("userPw");
+    String role = (String)session.getAttribute("role");
+    String team = (String)session.getAttribute("team");
+    String tel = (String)session.getAttribute("tel");
+    Integer idx = (Integer)session.getAttribute("idx");
+
+    if (name != null && id != null && pw != null && role != null && team != null && tel != null  && idx != null && idx > 0)
+     {
+%>
+    <script>
+        alert("이미 로그인되어 있습니다. 일정 페이지로 이동합니다.");
+        window.location.href = "mainPage.jsp"; // 아이디랑 비밀번호 넘기기? idx 넘기기?
+    </script>
+<%
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-    <link type="text/css" rel="stylesheet" href="signIn.css">
+    <link type="text/css" rel="stylesheet" href="../week13/css/signIn.css">
 </head>
 <body>
     <header>
@@ -25,7 +52,7 @@
             <h1 id="signupBigWord"> Sign in </h1> 
             <span id="signupLittleWord">Sign in and enjoy our all services!</span>
         </div>
-        <form name="signInForm" action="signin.jsp" >
+        <form name="signInForm" action="../week13/action/signInAction.jsp" >
             <div id="signupEtc">
                 <span>Id</span>
                 <input class="inputBox" name="id_value" type="text" length="20" maxlength="18">
@@ -36,11 +63,11 @@
         
             </div>
             
-            <button id="signupButton" action="signin.jsp"> Sign In </button>
+            <button id="signupButton"> Sign In </button>
         </form>
         <div id="underLogin">
             <span>If you don't have account, </span>
-            <a class="underLoginText" href="makeaccount.jsp"> Make account</a>
+            <a class="underLoginText" href=""> Make account</a>
         </div>
     </main>
 
@@ -52,7 +79,7 @@
                 <img class="footerIcon" src="twitterLogo.png">
                 <img class="footerIcon" src="instagramLogo.png">
             </div>
-            <span id="footerCopyright">ⓒ 2023 by IT Astronaut</span>
+            <span id="footerCopyright">copyright 2023 by IT Astronaut</span>
         </div>
         <div id="footerSubscribeBox">
             <span id="footerSubscribeInfo">Subscribe our updates & news!</span>
